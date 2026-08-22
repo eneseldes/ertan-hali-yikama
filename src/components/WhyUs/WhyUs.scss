@@ -1,0 +1,53 @@
+@use '../../styles/common' as c;
+
+.why-us {
+  @include c.section-padding;
+  background: c.$color-surface;
+  position: relative;
+
+  &__container {
+    @include c.container;
+  }
+
+  &__text {
+    max-width: 640px;
+    margin-bottom: 44px;
+
+    h2 {
+      font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+.why-card {
+  padding: 28px 22px;
+  border-radius: c.$radius-md;
+  background: c.$color-bg;
+  border: 1px solid c.$color-border;
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: c.$radius-sm;
+    background: linear-gradient(135deg, c.$color-primary, c.$color-secondary);
+    color: #fff;
+    margin-bottom: 18px;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.92rem;
+  }
+}

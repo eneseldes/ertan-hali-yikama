@@ -1,0 +1,81 @@
+@use '../../styles/common' as c;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh; // eski tarayıcılar için düşüş
+  min-height: 100svh; // mobil adres çubuğuna göre gerçek görünür yükseklik
+  display: flex;
+  align-items: center;
+  padding-block: 56px;
+  color: #fff;
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(135deg, c.$color-primary-dark, c.$color-primary);
+  }
+
+  &__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    // Filtre hissi için hafif saydam.
+    opacity: 0.22;
+    mix-blend-mode: luminosity;
+  }
+
+  &__tint {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(120deg, rgba(20, 68, 128, 0.92) 0%, rgba(30, 95, 168, 0.82) 45%, rgba(23, 176, 196, 0.55) 100%);
+  }
+
+  &__container {
+    @include c.container;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__text {
+    max-width: 640px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  &__lead {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.05rem;
+    max-width: 52ch;
+    margin-bottom: 32px;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+}

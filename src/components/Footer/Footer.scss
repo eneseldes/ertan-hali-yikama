@@ -1,0 +1,70 @@
+@use '../../styles/common' as c;
+
+.footer {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(120deg, c.$color-primary-dark 0%, c.$color-primary 55%, c.$color-secondary 130%);
+  color: rgba(255, 255, 255, 0.85);
+
+  &__container {
+    @include c.container;
+    display: grid;
+    gap: 32px;
+    padding-block: 56px 32px;
+
+    @include c.respond(md) {
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__logo {
+    display: block;
+    font-family: c.$font-heading;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  &__brand p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.92rem;
+    max-width: 34ch;
+  }
+
+  h4 {
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+
+  &__col ul {
+    display: grid;
+    gap: 10px;
+  }
+
+  &__col li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+
+  &__links a:hover,
+  &__col a:hover {
+    color: c.$color-secondary;
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-block: 18px;
+
+    p {
+      @include c.container;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.82rem;
+      margin: 0 auto;
+    }
+  }
+}

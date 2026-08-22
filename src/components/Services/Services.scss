@@ -1,0 +1,98 @@
+@use '../../styles/common' as c;
+
+.services {
+  @include c.section-padding;
+  position: relative;
+
+  // Köpükler kartların üstünde görünsün diye z-index yükseltildi.
+  .parallax-bubbles.services__bubbles {
+    z-index: 2;
+  }
+
+  &__container {
+    @include c.container;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__header {
+    max-width: 640px;
+    margin-bottom: 48px;
+
+    h2 {
+      font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+
+    @include c.respond(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include c.respond(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.service-card {
+  background: c.$color-surface;
+  border-radius: c.$radius-md;
+  overflow: hidden;
+  box-shadow: c.$shadow-sm;
+
+  &__image {
+    // İkon burada overflow:hidden olmayan katmanda, kesilmesin diye.
+    position: relative;
+    padding-bottom: 22px;
+  }
+
+  &__image-inner {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: c.$radius-md c.$radius-md 0 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include c.transition(transform, c.$duration-slow, c.$ease-out-soft);
+    }
+  }
+
+  &:hover &__image-inner img {
+    transform: scale(1.06);
+  }
+
+  &__icon {
+    position: absolute;
+    left: 18px;
+    bottom: 0;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: c.$radius-sm;
+    background: c.$color-primary;
+    color: #fff;
+    box-shadow: c.$shadow-sm;
+    z-index: 1;
+  }
+
+  &__body {
+    padding: 8px 20px 22px;
+
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 0.94rem;
+    }
+  }
+}

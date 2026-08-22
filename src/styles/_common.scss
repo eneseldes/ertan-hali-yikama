@@ -1,0 +1,4 @@
+// Tek noktadan ortak stil importu: `@use '../../styles/common' as c;`
+@forward 'variables';
+@forward 'mixins';
+@forward 'transitions';

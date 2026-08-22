@@ -1,0 +1,83 @@
+@use '../../styles/common' as c;
+
+.parallax-bubbles {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+
+  &--blue {
+    z-index: 0;
+  }
+
+  &--white {
+    z-index: 1;
+  }
+
+  &__bubble {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    scale: 1;
+    animation: bubble-float 7s ease-in-out infinite;
+    @include c.transition((scale, opacity), c.$duration-entrance, c.$ease-out-soft);
+  }
+
+  // growIn: JS bir sonraki frame'de bu class'ı kaldırıp büyümeyi tetikler.
+  &--pre &__bubble {
+    scale: 0;
+    opacity: 0 !important;
+  }
+
+  &__bubble:nth-child(2n) {
+    animation-duration: 9s;
+    animation-delay: -2s;
+  }
+  &__bubble:nth-child(3n) {
+    animation-duration: 6s;
+    animation-delay: -4s;
+  }
+  &__bubble:nth-child(5n) {
+    animation-duration: 8s;
+    animation-delay: -1s;
+  }
+}
+
+.parallax-bubbles--blue .parallax-bubbles__bubble {
+  background: radial-gradient(
+    circle at 30% 26%,
+    rgba(255, 255, 255, 0.95),
+    rgba(23, 176, 196, 0.4) 48%,
+    rgba(30, 95, 168, 0.14) 100%
+  );
+  border-color: rgba(30, 95, 168, 0.16);
+  box-shadow: 0 10px 28px rgba(20, 68, 128, 0.1);
+}
+
+.parallax-bubbles--white .parallax-bubbles__bubble {
+  background: radial-gradient(
+    circle at 30% 26%,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.32) 55%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 10px 24px rgba(6, 20, 40, 0.15);
+}
+
+@keyframes bubble-float {
+  0%, 100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-bubbles__bubble {
+    animation: none;
+    transform: none !important;
+  }
+}

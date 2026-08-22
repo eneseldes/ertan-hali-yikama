@@ -1,0 +1,35 @@
+// Marka renk paleti — ANALİZ.md Bölüm 3
+$color-primary: #1e5fa8; // güven mavisi — header, başlıklar, ana butonlar
+$color-primary-dark: #144480;
+$color-primary-light: #3f7fc9;
+$color-secondary: #17b0c4; // turkuaz — vurgular, ikonlar
+$color-accent: #27ae60; // yeşil — "Teklif Al" butonu
+$color-whatsapp: #25d366;
+$color-bg: #f7fafc;
+$color-surface: #ffffff;
+$color-text: #1f2933;
+$color-text-muted: #52606d;
+$color-border: #e1e8ee;
+
+$font-heading: 'Poppins', 'Segoe UI', sans-serif;
+$font-body: 'Inter', 'Segoe UI', sans-serif;
+
+$radius-sm: 8px;
+$radius-md: 16px;
+$radius-lg: 28px;
+$radius-full: 999px;
+
+$shadow-sm: 0 2px 8px rgba(20, 68, 128, 0.08);
+$shadow-md: 0 12px 32px rgba(20, 68, 128, 0.12);
+$shadow-lg: 0 24px 60px rgba(20, 68, 128, 0.18);
+
+$container-width: 1200px;
+
+$header-height: 76px;
+$header-height-mobile: 64px;
+
+// Breakpoint'ler (mixins.scss içindeki respond() ile kullanılır)
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;

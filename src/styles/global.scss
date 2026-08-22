@@ -1,0 +1,142 @@
+@use 'sass:color';
+@use 'common' as c;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: c.$header-height;
+}
+
+body {
+  margin: 0;
+  font-family: c.$font-body;
+  color: c.$color-text;
+  background: c.$color-bg;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: c.$font-heading;
+  margin: 0;
+  line-height: 1.15;
+  color: c.$color-text;
+}
+
+p {
+  margin: 0;
+  color: c.$color-text-muted;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  @include c.transition(color, c.$duration-fast);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: c.$color-secondary;
+  color: #fff;
+}
+
+// Ortak bölüm başlığı tipografisi — section component'leri doğrudan kullanır.
+.section-eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: c.$color-secondary;
+  margin-bottom: 10px;
+}
+
+.section-lead {
+  max-width: 60ch;
+  font-size: 1.02rem;
+  margin-top: 14px;
+}
+
+// Ortak buton sistemi (btn-primary / btn-outline / btn-whatsapp).
+%btn-base {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  padding: 11px 20px;
+  border-radius: c.$radius-full;
+  font-weight: 600;
+  font-size: 0.92rem;
+  @include c.transition(background, c.$duration-base);
+
+  &:focus-visible {
+    outline: 3px solid c.$color-secondary;
+    outline-offset: 2px;
+  }
+}
+
+.btn-primary {
+  @extend %btn-base;
+  background: c.$color-accent;
+  color: #fff;
+  box-shadow: c.$shadow-sm;
+
+  &:hover {
+    background: color.adjust(c.$color-accent, $lightness: -6%);
+  }
+}
+
+.btn-outline {
+  @extend %btn-base;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.18);
+  }
+}
+
+.btn-whatsapp {
+  @extend %btn-base;
+  background: c.$color-whatsapp;
+  color: #fff;
+
+  &:hover {
+    background: color.adjust(c.$color-whatsapp, $lightness: -6%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

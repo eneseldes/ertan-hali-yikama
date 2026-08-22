@@ -1,0 +1,61 @@
+@use '../../styles/common' as c;
+
+.floating-actions {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(16px) scale(0.92);
+  @include c.transition((opacity, transform), c.$duration-slow, c.$ease-out-soft);
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  &__btn {
+    @include c.focus-ring;
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #fff;
+    box-shadow: c.$shadow-lg;
+    @include c.transition(transform, c.$duration-base);
+
+    &:hover {
+      transform: scale(1.07);
+    }
+
+    &--phone {
+      background: c.$color-primary;
+    }
+
+    &--whatsapp {
+      background: c.$color-whatsapp;
+      animation: floating-pulse 2.6s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes floating-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45), c.$shadow-lg;
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0), c.$shadow-lg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-actions__btn--whatsapp {
+    animation: none;
+  }
+}

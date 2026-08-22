@@ -1,0 +1,9 @@
+.app {
+  position: relative;
+  overflow-x: clip;
+
+  &__main {
+    position: relative;
+    z-index: 1;
+  }
+}

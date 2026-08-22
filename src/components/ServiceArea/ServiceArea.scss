@@ -1,0 +1,50 @@
+@use '../../styles/common' as c;
+
+.service-area {
+  @include c.section-padding;
+  background: c.$color-surface;
+
+  &__container {
+    @include c.container;
+    display: grid;
+    gap: 40px;
+    align-items: center;
+
+    @include c.respond(lg) {
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 60px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: 12px;
+    margin-top: 26px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      color: c.$color-text;
+
+      svg {
+        color: c.$color-secondary;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &__map {
+    border-radius: c.$radius-md;
+    overflow: hidden;
+    box-shadow: c.$shadow-md;
+    aspect-ratio: 4 / 3;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+}

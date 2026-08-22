@@ -1,0 +1,83 @@
+@use '../../styles/common' as c;
+
+.how {
+  @include c.section-padding;
+  position: relative;
+
+  &__container {
+    @include c.container;
+  }
+
+  &__header {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 48px;
+
+    h2 {
+      font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    }
+  }
+
+  &__steps {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+.how-step {
+  position: relative;
+  overflow: hidden; // sağ alttaki dev ikonun taşan kısmını kırpar
+  padding: 30px 24px;
+  border-radius: c.$radius-md;
+  background: c.$color-surface;
+  box-shadow: c.$shadow-sm;
+  text-align: center;
+
+  // Sağ altta kısmen kesilen dekoratif ikon.
+  &__icon {
+    position: absolute;
+    right: -18px;
+    bottom: -18px;
+    width: 104px;
+    height: 104px;
+    color: c.$color-secondary;
+    opacity: 0.14;
+    @include c.transition(transform, c.$duration-slow, c.$ease-out-soft);
+  }
+
+  &:hover &__icon {
+    transform: translate(-8px, -8px);
+  }
+
+  &__number {
+    display: inline-grid;
+    place-items: center;
+    position: relative;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    background: c.$color-bg;
+    color: c.$color-primary;
+    font-family: c.$font-heading;
+    font-weight: 700;
+    border: 2px solid c.$color-secondary;
+    @include c.transition(transform, c.$duration-base);
+  }
+
+  &:hover &__number {
+    transform: translateY(-3px);
+  }
+
+  h3 {
+    position: relative;
+    font-size: 1.02rem;
+    margin-bottom: 8px;
+  }
+
+  p {
+    position: relative;
+    font-size: 0.92rem;
+  }
+}

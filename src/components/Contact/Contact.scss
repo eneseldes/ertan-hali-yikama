@@ -1,0 +1,52 @@
+@use '../../styles/common' as c;
+
+.contact {
+  @include c.section-padding;
+
+  &__container {
+    @include c.container;
+  }
+
+  &__info {
+    max-width: 560px;
+    margin-inline: auto;
+    text-align: center;
+
+    h2 {
+      font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+      margin-bottom: 4px;
+    }
+
+    .section-lead {
+      margin-inline: auto;
+    }
+  }
+
+  &__details {
+    display: inline-grid;
+    justify-items: start;
+    gap: 16px;
+    margin-top: 28px;
+    text-align: left;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+    }
+
+    svg {
+      flex-shrink: 0;
+      color: c.$color-primary;
+    }
+
+    a {
+      @include c.transition(color, c.$duration-fast);
+
+      &:hover {
+        color: c.$color-primary;
+      }
+    }
+  }
+}
