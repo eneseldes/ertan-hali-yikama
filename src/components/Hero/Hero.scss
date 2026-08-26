@@ -11,13 +11,6 @@ $video-fade-duration: 1.2s;
   position: relative;
   overflow: hidden;
   min-height: 100vh; // eski tarayıcılar için düşüş
-  min-height: 100svh; // adres çubuğu açıkken taşma olmasın
-  // `dvh`: gerçek zamanlı görünür yükseklik. Bazı mobil tarayıcılarda
-  // (örn. uygulama içi tarayıcılar) svh desteklenmeyip 100vh'a düşülüyor;
-  // 100vh adres çubuğu kapalıymış gibi hesaplanınca Hero, ekranda fiilen
-  // görünenden uzun oluyor ve bir sonraki section'a (Hizmetlerimiz) ulaşmak
-  // için ekran dışı kalan fazladan kısmı da kaydırmak gerekiyordu.
-  min-height: 100dvh;
   display: flex;
   align-items: center;
   padding-block: 56px;
@@ -39,7 +32,6 @@ $video-fade-duration: 1.2s;
     object-fit: cover;
     // Filtre hissi için hafif saydam; sayfa açılışında bu değere kadar solarak gelir.
     opacity: 0;
-    mix-blend-mode: luminosity;
     @include c.transition(opacity, $video-fade-duration, c.$ease-out-soft);
 
     &--ready {
