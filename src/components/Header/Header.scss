@@ -9,6 +9,8 @@
   height: c.$header-height-mobile;
   display: flex;
   align-items: center;
+  background: transparent;
+  @include c.transition((background, box-shadow), c.$duration-base);
   // Sayfa açılışında ekranın üstünden, hero içeriğiyle aynı anda kayarak iner.
   // `backwards`: animasyon bitince transform kalmaz, mobil menü paneli
   // (position: fixed) header'a çakılmaz.
@@ -18,27 +20,11 @@
     height: c.$header-height;
   }
 
-  // Arka plan/gölge ayrı bir katmanda (::before) opacity ile geçiş yapıyor.
-  // `background-color`'ı doğrudan animasyonlamak her karede repaint
-  // gerektiriyordu (compositor'da değil); zayıf telefonlarda bu geçiş
-  // atlanıp aniden son renge zıplıyordu. `opacity` tamamen GPU'da
-  // (compositor) çalışır, repaint gerektirmez.
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: c.$shadow-sm;
-    opacity: 0;
-    @include c.transition(opacity, c.$duration-base);
-  }
-
   &--scrolled,
   &--menu-open {
-    &::before {
-      opacity: 1;
-    }
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(10px);
+    box-shadow: c.$shadow-sm;
   }
 
   &__inner {
