@@ -126,11 +126,23 @@
   @media (max-width: 1023px) {
     &__nav {
       position: fixed;
-      inset: c.$header-height-mobile 0 0 0;
+      top: c.$header-height-mobile;
+      right: 0;
+      left: 0;
+      // `bottom: 0` yerine sabit yükseklik: `.header--menu-open` üzerindeki
+      // backdrop-filter, position:fixed olan bu panel için header'ı containing
+      // block yapıyor (header sadece header-height kadar yüksek), bu yüzden
+      // bottom:0 yükseklik 0'a düşürüyordu.
+      height: calc(100vh - #{c.$header-height-mobile});
       background: c.$color-surface;
       transform: translateX(100%);
       @include c.transition(transform, c.$duration-slow, c.$ease-out-soft);
       overflow-y: auto;
+
+      @include c.respond(md) {
+        top: c.$header-height;
+        height: calc(100vh - #{c.$header-height});
+      }
 
       &--open {
         transform: translateX(0);

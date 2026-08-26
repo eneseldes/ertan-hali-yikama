@@ -49,7 +49,7 @@ export default function Header() {
           aria-label={menuOpen ? 'Menüyü kapat' : 'Menüyü aç'}
           aria-expanded={menuOpen}
         >
-          {menuOpen ? <CloseIcon /> : <MenuIcon />}
+          {menuOpen ? <CloseIcon size={26} /> : <MenuIcon size={26} />}
         </button>
       </div>
     </header>

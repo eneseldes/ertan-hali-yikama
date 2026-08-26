@@ -10,6 +10,9 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: c.$header-height;
+  // Mobilde dokununca butonların/kartların mavi flash yapmasını engeller
+  // (SSS kartları, navbar hamburger butonu vb.).
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {

@@ -46,11 +46,11 @@ export default function Hero() {
         {/* Köpükler büyüdükten sonra gelsin diye gecikmeli; header da aynı anda
             insin diye styles/_transitions.scss > $delay-hero-entrance ile eşleşir. */}
         <Reveal delay={800} className="hero__text">
-          <p className="hero__eyebrow">{business.city} · Halı, Koltuk &amp; Araç Koltuğu Temizliği</p>
+          <p className="hero__eyebrow">Temizlikte Fark Yaratan Dokunuş</p>
           <h1>
             Niğde&apos;de Güvenilir
             <br />
-            Halı Yıkama Merkezi
+            Halı Yıkama Hizmeti
           </h1>
           <p className="hero__lead">
             {about.intro} Halı, koltuk ve araç koltuğu temizliği — titizlikle ve

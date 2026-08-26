@@ -29,6 +29,7 @@
     color: #fff;
     box-shadow: c.$shadow-lg;
     @include c.transition(transform, c.$duration-base);
+    font-size: 1.2rem;
 
     &:hover {
       transform: scale(1.07);
