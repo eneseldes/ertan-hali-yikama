@@ -66,19 +66,25 @@ export default function ParallaxBubbles({ variant = 'blue', bubbles = HERO_BUBBL
         return (
           <span
             key={b.id}
-            className="parallax-bubbles__bubble"
+            className="parallax-bubbles__bubble-wrap"
             style={{
               top: b.top,
               left: b.left,
               right: b.right,
               width: b.size,
               height: b.size,
-              opacity: b.opacity,
-              filter: b.blur ? `blur(${b.blur}px)` : undefined,
               transform: `translate3d(0, ${offset}px, 0)`,
-              transitionDelay: growIn ? `${growDelays[b.id]}ms` : undefined,
             }}
-          />
+          >
+            <span
+              className="parallax-bubbles__bubble"
+              style={{
+                opacity: b.opacity,
+                filter: b.blur ? `blur(${b.blur}px)` : undefined,
+                transitionDelay: growIn ? `${growDelays[b.id]}ms` : undefined,
+              }}
+            />
+          </span>
         )
       })}
     </div>
