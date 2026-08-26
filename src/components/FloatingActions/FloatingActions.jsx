@@ -5,7 +5,7 @@ import './FloatingActions.scss'
 
 // Hero geçilince beliren Instagram, arama ve WhatsApp butonları.
 export default function FloatingActions() {
-  const visible = useScrollY() > window.innerHeight * 0.6
+  const visible = useScrollY() > window.innerHeight * 0.85
 
   return (
     <div className={`floating-actions ${visible ? 'floating-actions--visible' : ''}`}>

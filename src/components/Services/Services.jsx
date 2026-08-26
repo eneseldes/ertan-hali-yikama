@@ -8,12 +8,12 @@ import './Services.scss'
 // `clamp()` ile büyük ekranda kartlara binmez. Hız burada değil, boyuttan
 // ParallaxBubbles içinde otomatik hesaplanır.
 const SERVICES_BUBBLES = [
-  { id: 's1', top: '55%', left: 'clamp(10px, 2.8%, 55px)', size: 70, opacity: 0.4, blur: 0 },
-  { id: 's2', top: '60%', left: 'clamp(22px, 6%, 130px)', size: 80, opacity: 0.46, blur: 1 },
+  { id: 's1', top: '55%', left: 'clamp(10px, 2.8%, 55px)', size: 70, opacity: 0.58, blur: 0 },
+  { id: 's2', top: '60%', left: 'clamp(22px, 6%, 130px)', size: 80, opacity: 0.64, blur: 1 },
 
-  { id: 's3', top: '48%', right: 'clamp(16px, 4%, 90px)', size: 70, opacity: 0.42, blur: 0 },
-  { id: 's4', top: '70%', right: 'clamp(10px, 2.5%, 55px)', size: 75, opacity: 0.4, blur: 1 },
-  { id: 's5', top: '88%', right: 'clamp(20px, 5%, 120px)', size: 77, opacity: 0.46, blur: 0 },
+  { id: 's3', top: '48%', right: 'clamp(16px, 4%, 90px)', size: 70, opacity: 0.6, blur: 0 },
+  { id: 's4', top: '70%', right: 'clamp(10px, 2.5%, 55px)', size: 75, opacity: 0.58, blur: 1 },
+  { id: 's5', top: '88%', right: 'clamp(20px, 5%, 120px)', size: 77, opacity: 0.64, blur: 0 },
 ]
 
 export default function Services() {

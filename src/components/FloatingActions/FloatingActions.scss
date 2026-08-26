@@ -9,13 +9,8 @@
   flex-direction: column;
   gap: 12px;
   pointer-events: none;
-  opacity: 0;
-  transform: translateY(16px) scale(0.92);
-  @include c.transition((opacity, transform), c.$duration-slow, c.$ease-out-soft);
 
   &--visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
     pointer-events: auto;
   }
 
@@ -29,11 +24,18 @@
     border-radius: 50%;
     color: #fff;
     box-shadow: c.$shadow-lg;
-    @include c.transition(transform, c.$duration-base);
     font-size: 1.2rem;
+    // Buton grup olarak değil, tek tek (stoktan çıkar gibi) beliriyor —
+    // her biri kendi opacity/transform'unu taşıyor, aşağıdaki nth-child
+    // kuralları aralarına gecikme koyuyor.
+    opacity: 0;
+    transform: translateY(16px) scale(0.92);
+    @include c.transition((opacity, transform), c.$duration-slow, c.$ease-out-soft);
+    will-change: opacity, transform;
 
     &:hover {
       transform: scale(1.07);
+      transition-delay: 0ms;
     }
 
     &--instagram {
@@ -59,6 +61,18 @@
         animation: floating-pulse 2.6s ease-out infinite;
       }
     }
+  }
+
+  &--visible &__btn {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  &__btn:nth-child(2) {
+    transition-delay: 90ms;
+  }
+  &__btn:nth-child(3) {
+    transition-delay: 180ms;
   }
 }
 
