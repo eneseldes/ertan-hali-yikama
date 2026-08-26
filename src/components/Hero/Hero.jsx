@@ -30,6 +30,10 @@ export default function Hero() {
           muted
           loop
           playsInline
+          disablePictureInPicture
+          disableRemotePlayback
+          controlsList="nodownload nofullscreen noremoteplayback noplaybackrate"
+          tabIndex={-1}
           poster={heroVideo.poster}
           onCanPlay={showMedia}
           onError={showMedia}

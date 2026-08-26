@@ -22,6 +22,9 @@ $video-fade-duration: 1.2s;
     inset: 0;
     z-index: 0;
     background: linear-gradient(135deg, c.$color-primary-dark, c.$color-primary);
+    // Sadece görsel arka plan — dokunmatik ekranlarda tarayıcının video
+    // player kontrollerini (tam ekran/indirme simgesi vb.) tetiklemesin.
+    pointer-events: none;
   }
 
   &__video {

@@ -1,18 +1,11 @@
-import { useEffect, useState } from 'react'
 import { business } from '../../data/content'
+import { useScrollThreshold } from '../../hooks/useScrollThreshold'
 import { InstagramIcon, PhoneIcon, WhatsAppIcon } from '../Icons/Icons'
 import './FloatingActions.scss'
 
 // Hero geçilince beliren Instagram, arama ve WhatsApp butonları.
 export default function FloatingActions() {
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.6)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const visible = useScrollThreshold(window.innerHeight * 0.6)
 
   return (
     <div className={`floating-actions ${visible ? 'floating-actions--visible' : ''}`}>

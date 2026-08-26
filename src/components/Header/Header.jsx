@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { business } from '../../data/content'
+import { useScrollThreshold } from '../../hooks/useScrollThreshold'
 import { MenuIcon, CloseIcon } from '../Icons/Icons'
 import './Header.scss'
 
@@ -11,15 +12,8 @@ const NAV_LINKS = [
 ]
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false)
+  const scrolled = useScrollThreshold(24)
   const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   const closeMenu = () => setMenuOpen(false)
 

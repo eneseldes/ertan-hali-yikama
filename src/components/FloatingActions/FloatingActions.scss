@@ -21,6 +21,7 @@
 
   &__btn {
     @include c.focus-ring;
+    position: relative;
     width: 54px;
     height: 54px;
     display: grid;
@@ -45,22 +46,35 @@
 
     &--whatsapp {
       background: c.$color-whatsapp;
-      animation: floating-pulse 2.6s ease-in-out infinite;
+
+      // Halka efekti box-shadow yerine transform/opacity ile: box-shadow'u
+      // sonsuz döngüde animasyonlamak her karede repaint gerektirip mobilde
+      // kasmaya yol açıyordu; transform+opacity compositor'da (GPU) çalışır.
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: c.$color-whatsapp;
+        animation: floating-pulse 2.6s ease-out infinite;
+      }
     }
   }
 }
 
 @keyframes floating-pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45), c.$shadow-lg;
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
   }
-  50% {
-    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0), c.$shadow-lg;
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .floating-actions__btn--whatsapp {
+  .floating-actions__btn--whatsapp::before {
     animation: none;
   }
 }
