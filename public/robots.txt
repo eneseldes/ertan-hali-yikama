@@ -1,4 +1,12 @@
+# Ertan Halı Yıkama — https://ertanhaliyikama.com
 User-agent: *
+Allow: /
+
+# Reklam botları (Google Ads kalite puanı için gerekli)
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
 Allow: /
 
 Sitemap: https://ertanhaliyikama.com/sitemap.xml

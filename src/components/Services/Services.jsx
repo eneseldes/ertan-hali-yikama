@@ -1,4 +1,4 @@
-import { services } from '../../data/content'
+import { about, services } from '../../data/content'
 import { iconMap } from '../Icons/Icons'
 import Reveal from '../Reveal/Reveal'
 import ParallaxBubbles from '../ParallaxBubbles/ParallaxBubbles'
@@ -24,11 +24,8 @@ export default function Services() {
       <div className="services__container">
         <Reveal className="services__header">
           <p className="section-eyebrow">Hizmetlerimiz</p>
-          <h2>İhtiyacınız Olan Her Yıkama Hizmeti</h2>
-          <p className="section-lead">
-            Halıdan yorgana, koltuktan perdeye kadar evinizin tüm tekstil ürünleri
-            için profesyonel yıkama ve bakım hizmeti sunuyoruz.
-          </p>
+          <h2>Eviniz ve Aracınız İçin Temizlik Hizmetleri</h2>
+          <p className="section-lead">{about.services}</p>
         </Reveal>
 
         <div className="services__grid">
@@ -38,7 +35,6 @@ export default function Services() {
               <Reveal as="article" key={service.id} delay={(i % 3) * 90} className="service-card">
                 <div className="service-card__image">
                   <div className="service-card__image-inner">
-                    {/* Yer tutucu: gerçek hizmet fotoğrafı gelince değiştirilecek */}
                     <img src={service.image} alt={service.title} loading="lazy" />
                   </div>
                   <span className="service-card__icon">

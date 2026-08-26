@@ -11,6 +11,10 @@
   align-items: center;
   background: transparent;
   @include c.transition((background, box-shadow), c.$duration-base);
+  // Sayfa açılışında ekranın üstünden, hero içeriğiyle aynı anda kayarak iner.
+  // `backwards`: animasyon bitince transform kalmaz, mobil menü paneli
+  // (position: fixed) header'a çakılmaz.
+  animation: header-drop c.$duration-entrance c.$ease-out-soft c.$delay-hero-entrance backwards;
 
   @include c.respond(md) {
     height: c.$header-height;
@@ -151,5 +155,17 @@
         }
       }
     }
+  }
+}
+
+@keyframes header-drop {
+  from {
+    transform: translateY(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header {
+    animation: none;
   }
 }

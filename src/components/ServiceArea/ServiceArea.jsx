@@ -9,10 +9,10 @@ export default function ServiceArea() {
       <div className="service-area__container">
         <Reveal className="service-area__text">
           <p className="section-eyebrow">Hizmet Bölgesi</p>
-          <h2>Niğde&apos;nin Her Noktasındayız</h2>
+          <h2>Niğde ve Çevresine Hizmet Veriyoruz</h2>
           <p className="section-lead">
-            Merkez ve çevre ilçelerin tamamına ücretsiz al-getir servisiyle hizmet
-            veriyoruz.
+            Niğde merkez ve çevresinde adresinizden alım–teslim ile çalışıyoruz.
+            Bölgenizin kapsamda olup olmadığını sormak için bize ulaşın.
           </p>
           <ul className="service-area__list">
             {business.serviceAreas.map((area) => (

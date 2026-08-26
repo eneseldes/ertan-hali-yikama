@@ -1,5 +1,5 @@
-import { business } from '../../data/content'
-import { PhoneIcon, WhatsAppIcon, MapPinIcon } from '../Icons/Icons'
+import { about, business } from '../../data/content'
+import { PhoneIcon, WhatsAppIcon, MapPinIcon, InstagramIcon } from '../Icons/Icons'
 import './Footer.scss'
 
 export default function Footer() {
@@ -11,8 +11,8 @@ export default function Footer() {
         <div className="footer__brand">
           <span className="footer__logo">{business.name}</span>
           <p>
-            {business.city} ve çevresinde profesyonel halı, koltuk ve yorgan yıkama
-            hizmeti. {business.foundedYear}&apos;den bu yana hizmetinizdeyiz.
+            {business.city}&apos;de koltuk yıkama, araç koltuğu temizliği, halı ve ev
+            tekstili temizliği. {about.promise}
           </p>
         </div>
 
@@ -26,6 +26,16 @@ export default function Footer() {
             <li>
               <WhatsAppIcon width={16} height={16} />
               <a href={business.whatsappHref}>{business.whatsappDisplay}</a>
+            </li>
+            <li>
+              <InstagramIcon width={16} height={16} />
+              <a
+                href={business.social.instagramHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {business.social.instagramDisplay}
+              </a>
             </li>
             <li>
               <MapPinIcon width={16} height={16} />

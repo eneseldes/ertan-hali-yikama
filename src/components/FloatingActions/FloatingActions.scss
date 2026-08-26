@@ -34,6 +34,10 @@
       transform: scale(1.07);
     }
 
+    &--instagram {
+      background: c.$gradient-instagram;
+    }
+
     &--phone {
       background: c.$color-primary;
     }

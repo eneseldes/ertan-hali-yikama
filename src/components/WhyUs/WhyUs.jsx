@@ -1,4 +1,4 @@
-import { whyUs } from '../../data/content'
+import { about, whyUs } from '../../data/content'
 import { iconMap } from '../Icons/Icons'
 import Reveal from '../Reveal/Reveal'
 import './WhyUs.scss'
@@ -10,10 +10,7 @@ export default function WhyUs() {
         <Reveal className="why-us__text">
           <p className="section-eyebrow">Neden Biz?</p>
           <h2>Halınıza Ailemizin Halısı Gibi Bakıyoruz</h2>
-          <p className="section-lead">
-            Yılların verdiği tecrübeyle, hijyenden hıza kadar her aşamada
-            standardımızdan ödün vermiyoruz.
-          </p>
+          <p className="section-lead">{about.intro}</p>
         </Reveal>
 
         <div className="why-us__grid">

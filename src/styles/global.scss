@@ -44,7 +44,10 @@ a {
   @include c.transition(color, c.$duration-fast);
 }
 
-ul {
+// `ol` da dahil: tarayıcının varsayılan padding-inline-start'ı (40px) grid'i
+// sağa kaydırıp ortalamayı bozuyordu (bkz. .how__steps).
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;

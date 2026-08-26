@@ -35,6 +35,11 @@
 
     @include c.respond(lg) {
       grid-template-columns: repeat(3, 1fr);
+
+      // Kart sayısı 3'ün katı değilse son satırda tek kalan kart ortada dursun.
+      > :last-child:nth-child(3n + 1) {
+        grid-column: 2;
+      }
     }
   }
 }

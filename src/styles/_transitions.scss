@@ -8,6 +8,10 @@ $duration-base: 0.25s;
 $duration-slow: 0.45s;
 $duration-entrance: 1.2s; // sayfa girişindeki büyüyerek beliren köpükler / sakin reveal'lar için
 
+// Hero metni köpükler büyüdükten sonra geliyor; header da onunla aynı anda insin.
+// Hero.jsx'teki Reveal delay'i (800ms) ile aynı olmalı.
+$delay-hero-entrance: 0.8s;
+
 @mixin transition($props: all, $duration: $duration-base, $ease: $ease-standard) {
   transition-property: $props;
   transition-duration: $duration;

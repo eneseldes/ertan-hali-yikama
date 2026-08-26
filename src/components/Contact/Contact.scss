@@ -12,13 +12,26 @@
     margin-inline: auto;
     text-align: center;
 
+    // Geniş ekranda başlığın alt satıra sarkmaması için kutu genişletiliyor.
+    @include c.respond(lg) {
+      max-width: 780px;
+    }
+
     h2 {
       font-size: clamp(1.7rem, 3.2vw, 2.4rem);
-      margin-bottom: 4px;
+      margin-bottom: 16px;
+      text-wrap: balance;
     }
 
     .section-lead {
       margin-inline: auto;
+      margin-top: 0;
+
+      // Global 60ch sınırı burada metni 3 satıra bölüyordu; geniş ekranda
+      // iki satırda kalsın diye genişletildi.
+      @include c.respond(lg) {
+        max-width: 640px;
+      }
     }
   }
 
@@ -26,8 +39,12 @@
     display: inline-grid;
     justify-items: start;
     gap: 16px;
-    margin-top: 28px;
+    margin-top: 36px;
     text-align: left;
+
+    @include c.respond(md) {
+      margin-top: 44px;
+    }
 
     li {
       display: flex;

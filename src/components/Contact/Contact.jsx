@@ -1,5 +1,5 @@
-import { business } from '../../data/content'
-import { PhoneIcon, WhatsAppIcon, MapPinIcon, ClockIcon } from '../Icons/Icons'
+import { about, business } from '../../data/content'
+import { PhoneIcon, WhatsAppIcon, InstagramIcon, MapPinIcon, ClockIcon } from '../Icons/Icons'
 import Reveal from '../Reveal/Reveal'
 import './Contact.scss'
 
@@ -11,9 +11,8 @@ export default function Contact() {
           <p className="section-eyebrow">İletişim</p>
           <h2>Bize Her Zaman Ulaşabilirsiniz</h2>
           <p className="section-lead">
-            Sorularınız ve halı, koltuk, yorgan yıkama talepleriniz için aşağıdaki
-            numaralardan bize ulaşabilir ya da doğrudan adresimize gelebilirsiniz.
-            Size yardımcı olmaktan mutluluk duyarız.
+            Koltuk yıkama, araç koltuğu temizliği ve halı yıkama
+            talepleriniz için telefon ya da WhatsApp yeterli.
           </p>
 
           <ul className="contact__details">
@@ -25,6 +24,16 @@ export default function Contact() {
               <WhatsAppIcon />
               <a href={business.whatsappHref} target="_blank" rel="noopener noreferrer">
                 {business.whatsappDisplay}
+              </a>
+            </li>
+            <li>
+              <InstagramIcon />
+              <a
+                href={business.social.instagramHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {business.social.instagramDisplay}
               </a>
             </li>
             <li>
