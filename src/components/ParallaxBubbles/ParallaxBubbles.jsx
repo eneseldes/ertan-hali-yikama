@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useParallax } from '../../hooks/useParallax'
+import { useScrollY } from '../../hooks/useScrollY'
 import './ParallaxBubbles.scss'
 
 // Köpükler boyuta göre büyükten büyüğe sırayla büyür.
@@ -34,7 +34,7 @@ export const HERO_BUBBLES = [
 ]
 
 export default function ParallaxBubbles({ variant = 'blue', bubbles = HERO_BUBBLES, className = '', growIn = false }) {
-  const scrollY = useParallax()
+  const scrollY = useScrollY()
 
   // growIn: köpükler yer değiştirmeden büyüyerek belirir (sadece Hero'da).
   const [ready, setReady] = useState(!growIn)

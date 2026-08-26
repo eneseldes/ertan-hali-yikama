@@ -1,11 +1,11 @@
 import { business } from '../../data/content'
-import { useScrollThreshold } from '../../hooks/useScrollThreshold'
+import { useScrollY } from '../../hooks/useScrollY'
 import { InstagramIcon, PhoneIcon, WhatsAppIcon } from '../Icons/Icons'
 import './FloatingActions.scss'
 
 // Hero geçilince beliren Instagram, arama ve WhatsApp butonları.
 export default function FloatingActions() {
-  const visible = useScrollThreshold(window.innerHeight * 0.6)
+  const visible = useScrollY() > window.innerHeight * 0.6
 
   return (
     <div className={`floating-actions ${visible ? 'floating-actions--visible' : ''}`}>
