@@ -8,14 +8,13 @@ export const business = {
   whatsappDisplay: '0551 563 03 51',
   whatsappHref: 'https://wa.me/905515630351',
   address: 'Akpınar Apartmanı, Kale Mah. Deveci Sk. No:13, 51000 Niğde Merkez/Niğde',
-  hours: 'Hafta içi 08:30–19:00 · Cumartesi 09:00–18:00',
+  hours: 'Her gün açık · 09:00–21:00 (Pzt 20:00, Çar 22:00 kapanış)',
   mapsEmbedSrc:
     'https://www.google.com/maps?q=Ertan+Hal%C4%B1+Y%C4%B1kama+Deveci+Sk.+No%3A13+Kale+Ni%C4%9Fde&output=embed',
   serviceAreas: ['Niğde Merkez', 'Bor', 'Çiftlik', 'Ömer Halisdemir Üniversitesi Çevresi'],
   social: {
     instagramDisplay: 'ertan.haliyikama',
     instagramHref: 'https://www.instagram.com/ertan.haliyikama/',
-    facebookHref: 'https://facebook.com/', // TODO
   },
 }
 
